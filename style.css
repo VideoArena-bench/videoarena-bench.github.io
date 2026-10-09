@@ -88,7 +88,8 @@ code, pre { font-family: var(--mono); }
 .authors { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; font-size: 16px; font-weight: 500; margin: 0 auto 8px; max-width: 900px; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
 .authors sup { color: #5eead4; font-weight: 600; }
 .affils { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 16px; color: #c9d0dc; font-size: 14px; margin: 0 auto 4px; max-width: 900px; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
-.affils.small { font-size: 13px; color: var(--d-ink-2); display: block; }
+.affils.small { font-size: 13px; color: var(--d-ink-2); display: block; line-height: 1.7; }
+.affils.small a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.3); text-underline-offset: 2px; }
 .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 26px 0 0; }
 .hero .btn { background: #fff; color: var(--ink); border-color: #fff; }
 .hero .btn:hover { background: var(--brand-2); border-color: var(--brand-2); color: #04201d; }

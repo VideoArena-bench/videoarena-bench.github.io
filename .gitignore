@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+# build scripts and notes stay local
+tools/
+README.md
