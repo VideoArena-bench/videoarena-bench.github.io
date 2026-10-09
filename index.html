@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video-Arena</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="alternate icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="description" content="Video-Arena: A Scalable Agentic Video Benchmark for Spatiotemporal Capability" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="#top"><span class="brand-dot"></span>Video-Arena</a>
+      <nav>
+        <a href="#arenas">9 Arenas</a>
+        <a href="#model-arena">Model Arena</a>
+        <a href="#benchmark">Benchmark</a>
+        <a href="#results">Results</a>
+        <a href="#findings">Findings</a>
+        <a href="#citation">BibTeX</a>
+      </nav>
+      <a class="btn btn-sm" href="assets/paper.pdf" target="_blank">Paper</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <!-- looping 4x3 wall of the nine Demo I clips (tools/build_promo.py) -->
+    <div class="hero-bg" aria-hidden="true">
+      <video src="videos/hero_bg.mp4" poster="assets/img/hero_bg.jpg" autoplay muted loop playsinline preload="auto"></video>
+    </div>
+    <div class="wrap hero-in">
+      <div class="logos">
+        <img src="assets/logos/mihoyo.svg" alt="miHoYo" />
+        <img src="assets/logos/tsinghua.svg" alt="Tsinghua University" />
+        <img src="assets/logos/ucas.svg" alt="UCAS" />
+        <img src="assets/logos/hku.svg" alt="HKU" />
+      </div>
+      <h1 class="title"><span class="title-display">Video-Arena</span></h1>
+      <p class="title-sub">A Scalable Agentic Video Benchmark for Spatiotemporal Capability</p>
+      <p class="authors">
+        <span>Kuan Zhang<sup>1,2*‡</sup></span>
+        <span>Yukun Chen<sup>1,3*‡</sup></span>
+        <span>Zhihao Yang<sup>1,3*‡</sup></span>
+        <span>Yue Su<sup>4</sup></span>
+        <span>Xiangnan Wu<sup>3</sup></span>
+        <span>Zirong Chen<sup>2</sup></span>
+        <span>Run Luo<sup>1,5‡</sup></span>
+        <span>Tao Tan<sup>1</sup></span>
+        <span>Yinhe Zheng<sup>1†</sup></span>
+        <span>Yiming Li<sup>2†</sup></span>
+      </p>
+      <p class="affils">
+        <span><sup>1</sup>miHoYo Honkai AI R&amp;D Team</span>
+        <span><sup>2</sup>College AI, Tsinghua University</span>
+        <span><sup>3</sup>University of Chinese Academy of Sciences</span>
+        <span><sup>4</sup>MMLab, The University of Hong Kong</span>
+        <span><sup>5</sup>National University of Singapore</span>
+      </p>
+      <p class="affils small">*Equal contribution &nbsp;·&nbsp; †Corresponding author &nbsp;·&nbsp; ‡Work done while interning at miHoYo &nbsp;·&nbsp; yimingli9702@mail.tsinghua.edu.cn, yinhe.zheng@mihoyo.com</p>
+      <div class="buttons">
+        <a class="btn" href="assets/paper.pdf" target="_blank"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zM14 3v5h5"/></svg>Paper</a>
+        <a class="btn ghost" aria-disabled="true"><span class="ax">arXiv</span>soon</a>
+        <a class="btn ghost" aria-disabled="true">🤗 Dataset · soon</a>
+        <a class="btn ghost" aria-disabled="true"><svg viewBox="0 0 24 24"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>Code · soon</a>
+      </div>
+      <!-- 84 s narrated promo with soundtrack (tools/build_promo.py); autoplay must start muted -->
+      <div class="promo">
+        <video class="promo-video" src="videos/promo.mp4" poster="assets/img/promo_poster.jpg"
+               autoplay muted loop playsinline controls preload="metadata"></video>
+        <button class="sound" type="button" aria-label="Turn sound on"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="x" d="M16 9l6 6M22 9l-6 6"/></svg><span>Sound on</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEASER + STATS + ABSTRACT ============ -->
+  <section class="teaser-sec">
+    <div class="wrap">
+      <figure class="teaser">
+        <img src="assets/img/teaser1.jpg" alt="Video-Arena teaser" />
+        <figcaption>
+          Given a match video, a model must <b>perceive</b> critical events (T1), <b>interpret</b> the state
+          update each event causes (T2), and <b>track</b> the resulting world state (T3). Every answer is
+          verified against labels derived from the game record.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="wrap stats-in">
+      <div><b>9</b><span>games · 6 genres</span></div>
+      <div><b>180</b><span>golden-set tasks</span></div>
+      <div><b>3</b><span>task categories<br />perceive · interpret · track</span></div>
+      <div><b>2</b><span>protocols<br />visual · agentic</span></div>
+      <div><b>13.2 / 51.0</b><span>best F1<br />visual / agentic</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="wrap narrow">
+      <div class="eyebrow">Abstract</div>
+      <p class="abstract">
+        Understanding and tracking a dynamic world are fundamental to visual intelligence. Existing video
+        benchmarks provide limited insight into whether models can maintain a coherent understanding of an
+        evolving world state. We introduce <b>Video-Arena</b>, a benchmark that turns competitive games into
+        scalable, verifiable tests of how well models understand evolving world states from videos. It covers
+        three task categories: <b>perceiving</b> critical events, <b>interpreting</b> state updates, and
+        <b>tracking</b> the resulting states. Our pipeline can generate videos and aligned reference labels
+        from game records at scale. We release a golden set of <b>180 tasks across 9 games</b> and evaluate
+        models under two protocols: native visual understanding and tool-assisted agentic analysis. The
+        best-performing systems achieve F1 scores of only <b>13.2</b> and <b>51.0</b>, respectively. Native
+        models struggle to perceive events reliably, while tool-assisted systems improve event recovery but
+        still struggle to interpret state updates and track the resulting states consistently over time.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ DEMO I: 9 ARENAS ============ -->
+  <section class="section dark" id="arenas">
+    <div class="wrap">
+      <div class="eyebrow">Demo I · Nine arenas</div>
+      <h2>Watch the game. Keep the state.</h2>
+      <p class="lead">
+        One case from each of the nine environments. As the replay plays, the ground-truth tuple for every
+        critical event appears on the timeline: what happened (T1), how it moved the state (T2), and what the
+        state is now (T3). Long matches are shown as a condensed excerpt; the clock shows real game time.
+      </p>
+
+      <div class="task-strip">
+        <div class="task s1"><b>T1 · Perceive</b><span>the critical event: when · what · who</span></div>
+        <div class="task s2"><b>T2 · Interpret</b><span>u<sub>j</sub>: the state update it causes</span></div>
+        <div class="task s3"><b>T3 · Track</b><span>s<sub>j</sub>: the state after the update</span></div>
+      </div>
+
+      <div class="gtabs" id="env-tabs"></div>
+
+      <div class="env-grid">
+        <div>
+          <div id="env-player"></div>
+          <div class="meta" id="env-meta"></div>
+        </div>
+        <div class="card gt-panel">
+          <div class="panel-h">Ground truth <span class="muted">at the playhead</span></div>
+          <div class="now" id="env-now"></div>
+          <div class="panel-h sm"><span id="env-chart-title"></span></div>
+          <div class="vchart" id="env-chart"></div>
+          <div class="panel-h sm">Event log <span class="muted">click to seek · future events blurred</span></div>
+          <ol class="log" id="env-log"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEMO II: MODEL ARENA ============ -->
+  <section class="section dark alt" id="model-arena">
+    <div class="wrap">
+      <div class="eyebrow">Demo II · Model arena</div>
+      <h2>Same video, six minds. Who keeps up?</h2>
+      <p class="lead">
+        Every model watches the same case. Each mark is a real prediction from the model's submitted answer,
+        placed at the moment the replay reaches it and judged against the ground truth with the strict tuple
+        matcher (±3 s). The leaderboard is the running strict F1 over the clip.
+      </p>
+
+      <div class="arena-bar">
+        <div class="seg" id="arena-proto">
+          <button data-p="visual">Visual <small>native</small></button>
+          <button data-p="agentic" class="on">Agentic <small>tool-assisted</small></button>
+        </div>
+        <div class="cases" id="arena-cases"></div>
+      </div>
+
+      <div class="arena-top">
+        <div id="arena-player"></div>
+        <div class="card race-card">
+          <div class="panel-h">Live leaderboard <span class="muted">strict F1 on this case</span></div>
+          <div class="race" id="arena-race"></div>
+          <div class="panel-h sm">Play-by-play</div>
+          <ol class="ticker" id="arena-ticker"></ol>
+        </div>
+      </div>
+
+      <div class="legend">
+        <span><i class="mk full shown">✓</i>Exact tuple (T1 + T2 + T3)</span>
+        <span><i class="mk partial shown">◐</i>Right event, wrong T2 / T3</span>
+        <span><i class="mk fp shown">✗</i>No GT event within ±3 s</span>
+        <span><i class="mk miss shown">○</i>Missed GT event</span>
+        <span class="muted">hover any mark to compare prediction vs. ground truth</span>
+      </div>
+      <div class="lanes" id="arena-lanes"></div>
+    </div>
+  </section>
+
+  <!-- ============ BENCHMARK ============ -->
+  <section class="section" id="benchmark">
+    <div class="wrap">
+      <div class="eyebrow">Benchmark</div>
+      <h2>Games as scalable, verifiable video tests</h2>
+      <p class="lead">
+        Game records are replayed into videos, and every reference label is derived from the record itself,
+        by a parser for event games or by an engine evaluator for board and card games. One adapter per game
+        is all it takes to add a new arena.
+      </p>
+      <figure class="fig">
+        <img src="assets/img/pipeline.jpg" alt="Video-Arena pipeline" />
+        <figcaption>Data supply → one adapter per game → golden set → two evaluation protocols with a strict
+          tuple judge.</figcaption>
+      </figure>
+      <div class="cards3">
+        <div class="card pad">
+          <h3>Strict tuple F1</h3>
+          <p>A prediction counts only if its time falls within <b>±3 s</b> of a GT event <i>and</i> every field of
+            the tuple (event, update, state) is correct. Greedy one-to-one matching.</p>
+        </div>
+        <div class="card pad">
+          <h3>Visual protocol</h3>
+          <p>Native video understanding: frames sampled at <b>1 FPS</b>, capped at <b>256 frames</b>, a single
+            answer in one pass.</p>
+        </div>
+        <div class="card pad">
+          <h3>Agentic protocol</h3>
+          <p>Tool-assisted analysis inside a coding-agent harness: up to <b>200 turns</b> and <b>2 hours</b> of
+            free exploration of the full video.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="section soft" id="results">
+    <div class="wrap">
+      <div class="eyebrow">Results</div>
+      <h2>Leaderboard</h2>
+      <div class="res-bar">
+        <div class="seg" id="res-seg">
+          <button data-p="visual">Visual protocol</button>
+          <button data-p="agentic" class="on">Agentic protocol</button>
+        </div>
+        <span class="muted small">Strict tuple F1 (%) · cell shade ∝ F1 · bold = best model per column</span>
+      </div>
+      <div class="table-wrap"><table class="res" id="res-table"></table></div>
+    </div>
+  </section>
+
+  <!-- ============ FINDINGS ============ -->
+  <section class="section" id="findings">
+    <div class="wrap">
+      <div class="eyebrow">Findings</div>
+      <h2>What the arena reveals</h2>
+      <div class="findings">
+        <div class="card pad find">
+          <b class="big">13.2</b>
+          <h3>Native models barely perceive</h3>
+          <p>The best visual-protocol F1 is 13.2 (mean 4.6), while a temporal ceiling at the same 256-frame budget
+            reaches 90.2. The frames contain the answer; the models miss it.</p>
+        </div>
+        <div class="card pad find">
+          <b class="big">7.2 → 51.0</b>
+          <h3>Tools help by structuring evidence</h3>
+          <p>With a harness, Claude-Opus-5.0 jumps from 7.2 to 51.0 and the mean rises to 20.9. The gain comes from
+            organising evidence, not from seeing more images.</p>
+        </div>
+        <div class="card pad find">
+          <b class="big">1.00 vs ~0.6</b>
+          <h3>Seeing ≠ tracking</h3>
+          <p>On board and card games the best agent perceives nearly every move (T1 ≈ 1.00) yet tracks the
+            resulting state far less reliably (T3 ≈ 0.52–0.68).</p>
+        </div>
+        <div class="card pad find">
+          <b class="big">14.6</b>
+          <h3>Dense arenas remain open</h3>
+          <p>DOTA 2 and StarCraft II are both perception- and reasoning-bound: even the best agent reaches only
+            T1 0.52 / 0.36, and 14.6 F1 on SC2.</p>
+        </div>
+      </div>
+      <figure class="fig">
+        <img src="assets/img/contrast.jpg" alt="CS2 agentic contrast" />
+        <figcaption>Same CS2 case, two agents: Claude-Opus-5.0 (84.5 on CS2) keeps the round score in sync, while
+          MiniMax M3 (7.2) loses track early.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ CITATION ============ -->
+  <section class="section soft" id="citation">
+    <div class="wrap narrow">
+      <div class="eyebrow">Citation</div>
+      <div class="bib">
+        <button class="copy" id="bib-copy">Copy</button>
+        <pre id="bibtex"></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">Video-Arena · miHoYo · THU · UCAS · HKU · NUS</div>
+  </footer>
+
+  <div class="tip" id="tip" role="tooltip"></div>
+
+  <script src="data.js"></script>
+  <script src="data_real.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
