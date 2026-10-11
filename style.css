@@ -136,6 +136,10 @@ figcaption { color: var(--ink-2); font-size: 14px; margin: 12px auto 0; text-ali
 /* ---------- sections ---------- */
 .section { padding: 80px 0; }
 .section.soft { background: var(--soft); }
+.srclist { display: flex; flex-wrap: wrap; gap: 8px 10px; list-style: none; padding: 0; margin: 0 0 16px; }
+.srclist a { display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 13px; color: var(--ink-2); background: #fff; }
+.srclist a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
 .eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand); margin-bottom: 10px; }
 h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.15; margin: 0 0 14px; letter-spacing: -.02em; }
 h3 { margin: 0 0 6px; font-size: 17px; }
@@ -345,3 +349,6 @@ table.res { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width
 .tip .pa { color: #a86f00; font-weight: 700; }
 
 .ltrack .norun { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font: 500 11px var(--mono); color: var(--d-muted); }
+
+ul.lead { padding-left: 1.2em; }
+ul.lead li { margin-bottom: 10px; }

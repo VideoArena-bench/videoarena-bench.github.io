@@ -26,6 +26,7 @@
         <a href="#results">Results</a>
         <a href="#findings">Findings</a>
         <a href="#citation">BibTeX</a>
+        <a href="#licence">Licence</a>
       </nav>
       <a class="btn btn-sm" href="assets/paper.pdf" target="_blank">Paper</a>
     </div>
@@ -69,8 +70,8 @@
       <div class="buttons">
         <a class="btn" href="assets/paper.pdf" target="_blank"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zM14 3v5h5"/></svg>Paper</a>
         <a class="btn ghost" aria-disabled="true"><span class="ax">arXiv</span>soon</a>
-        <a class="btn ghost" aria-disabled="true">🤗 Dataset · soon</a>
-        <a class="btn ghost" aria-disabled="true"><svg viewBox="0 0 24 24"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>Code · soon</a>
+        <a class="btn" href="https://huggingface.co/datasets/THUSI-Lab/Video-Arena" target="_blank" rel="noopener">🤗 Dataset</a>
+        <a class="btn" href="https://github.com/THUSI-Lab/VideoArena" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>Code</a>
       </div>
       <!-- 84 s narrated promo with soundtrack (tools/build_promo.py); autoplay must start muted -->
       <div class="promo">
@@ -290,6 +291,48 @@
     </div>
   </section>
 
+  <!-- ============ LICENCE ============ -->
+  <section class="section" id="licence">
+    <div class="wrap narrow">
+      <div class="eyebrow">Licence</div>
+      <h2>Research use only</h2>
+      <p class="lead">Video-Arena is a <strong>purely scientific research</strong> project. We carry out
+        <strong>no commercial activity</strong> of any kind with it: the benchmark is not sold, licensed for
+        a fee, or used in any product or service.</p>
+      <ul class="lead">
+        <li><strong>Data.</strong> The videos and ground truth on
+          <a href="https://huggingface.co/datasets/THUSI-Lab/Video-Arena" target="_blank" rel="noopener">Hugging Face</a>
+          are released for <strong>non-commercial research use only</strong>. The videos are
+          information-reduced renders of game replays and game data, with no player names, faces, avatars,
+          ranks, audio or other personal data.</li>
+        <li><strong>Game copyright.</strong> All game content, copyrights and trademarks belong to their
+          publishers and owners, in particular <strong>Blizzard Entertainment</strong> (StarCraft II) and
+          <strong>Valve Corporation</strong> (Dota 2, Counter-Strike 2). Badminton is derived from ShuttleSet
+          (MIT, © 2022 Wei-Yao Wang), whose notice must accompany any redistribution.</li>
+        <li><strong>Code.</strong> The evaluation code and judges on
+          <a href="https://github.com/THUSI-Lab/VideoArena" target="_blank" rel="noopener">GitHub</a> are
+          released under the Apache License 2.0. This does not extend any right to the game content.</li>
+      </ul>
+      <p class="lead">Please read the licence and copyright terms of the upstream sources before use:</p>
+      <ul class="srclist">
+          <li><a href="https://github.com/Blizzard/s2client-proto" target="_blank" rel="noopener">Blizzard · StarCraft II AI and ML licence</a></li>
+          <li><a href="https://www.blizzard.com/en-us/legal/" target="_blank" rel="noopener">Blizzard · Legal</a></li>
+          <li><a href="https://www.dota2.com" target="_blank" rel="noopener">Valve · Dota 2</a></li>
+          <li><a href="https://www.counter-strike.net" target="_blank" rel="noopener">Valve · Counter-Strike 2</a></li>
+          <li><a href="https://store.steampowered.com/subscriber_agreement/" target="_blank" rel="noopener">Valve · Steam Subscriber Agreement</a></li>
+          <li><a href="https://www.opendota.com" target="_blank" rel="noopener">OpenDota</a></li>
+          <li><a href="https://online-go.com" target="_blank" rel="noopener">OGS</a></li>
+          <li><a href="https://lichess.org" target="_blank" rel="noopener">Lichess</a></li>
+          <li><a href="http://gomocup.org" target="_blank" rel="noopener">Gomocup</a></li>
+          <li><a href="https://github.com/kwai/DouZero" target="_blank" rel="noopener">DouZero</a></li>
+          <li><a href="https://github.com/google-research/football" target="_blank" rel="noopener">Google Research Football</a></li>
+          <li><a href="https://arxiv.org/abs/2306.04948" target="_blank" rel="noopener">ShuttleSet</a></li>
+      </ul>
+      <p class="muted">The paper's ethics statement lists the licence review for all nine environments.
+        See <a href="assets/paper.pdf" target="_blank" rel="noopener">the paper</a> for details.</p>
+    </div>
+  </section>
+
   <!-- ============ CITATION ============ -->
   <section class="section soft" id="citation">
     <div class="wrap narrow">
@@ -302,7 +345,8 @@
   </section>
 
   <footer class="foot">
-    <div class="wrap">Video-Arena · miHoYo · THU · UCAS · HKU · NUS</div>
+    <div class="wrap">Video-Arena · miHoYo · THU · UCAS · HKU · NUS<br />
+      <span class="muted">Pure research, no commercial use. Data for non-commercial research only; code under Apache-2.0. Game content © its publishers, incl. Blizzard Entertainment and Valve Corporation.</span></div>
   </footer>
 
   <div class="tip" id="tip" role="tooltip"></div>
