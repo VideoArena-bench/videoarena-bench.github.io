@@ -335,7 +335,7 @@
   title   = {Video-Arena: A Scalable Agentic Video Benchmark for Spatiotemporal Capability},
   author  = {Zhang, Kuan and Chen, Yukun and Yang, Zhihao and Su, Yue and Wu, Xiangnan and
              Chen, Zirong and Luo, Run and Tan, Tao and Zheng, Yinhe and Li, Yiming},
-  journal = {arXiv preprint},
+  journal = {arXiv preprint arXiv:2610.14158},
   year    = {2026}
 }`;
 })();
